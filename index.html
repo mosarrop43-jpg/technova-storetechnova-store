@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechNova Store</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef6ff;
+      margin: 0;
+      text-align: center;
+    }
+
+    header {
+      background: #123c69;
+      color: white;
+      padding: 25px;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      width: 230px;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px #ccc;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    button {
+      background: #0879e8;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #cart {
+      padding: 20px;
+      background: white;
+      margin: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>TechNova Store</h1>
+    <p>Your Smart Shopping Destination</p>
+  </header>
+
+  <h2>Our Products</h2>
+
+  <div class="products">
+
+    <div class="card">
+      <img src="https://placehold.co/300x200?text=Bluetooth+Speaker">
+      <h3>Bluetooth Speaker</h3>
+      <p>$25</p>
+      <button onclick="addToCart(25)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="https://placehold.co/300x200?text=Headphones">
+      <h3>Wireless Headphones</h3>
+      <p>$30</p>
+      <button onclick="addToCart(30)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="https://placehold.co/300x200?text=Power+Bank">
+      <h3>Power Bank</h3>
+      <p>$20</p>
+      <button onclick="addToCart(20)">Add to Cart</button>
+    </div>
+
+  </div>
+
+  <div id="cart">
+    <h2>Shopping Cart</h2>
+    <p>Items: <span id="count">0</span></p>
+    <p>Total: $<span id="total">0</span></p>
+    <button onclick="checkout()">Demo Checkout</button>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    let count = 0;
+    let total = 0;
+
+    function addToCart(price) {
+      count++;
+      total += price;
+      document.getElementById("count").innerText = count;
+      document.getElementById("total").innerText = total;
+    }
+
+    function checkout() {
+      if (count === 0) {
+        document.getElementById("message").innerText =
+          "Your cart is empty!";
+      } else {
+        document.getElementById("message").innerText =
+          "Demo order successful!";
+      }
+    }
+  </script>
+
+</body>
+</html>
